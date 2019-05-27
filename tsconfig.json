@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "next-menu": [
+        "dist/next-menu"
+      ],
+      "next-menu/*": [
+        "dist/next-menu/*"
+      ]
+    }
   }
 }
