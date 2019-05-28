@@ -1,0 +1,32 @@
+$white: #fff;
+$blue-light: #5291dd;
+$blue: #0460a9;
+$dark-blue: #023761;
+
+.next-menu-part {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+
+  &--header {
+    height: 30px;
+    display: flex;
+    border-bottom: 1px solid #000;
+
+    &:hover {
+      background-color: $blue;
+      color: $white;
+    }
+  }
+
+  .inverse {
+    color: $white;
+    background-color: $blue;
+  }
+
+  &--title {
+    margin: auto 0;
+    margin-left: 10px;
+  }
+}

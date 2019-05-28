@@ -1,0 +1,13 @@
+<div class="next-menu-part">
+  <div class="next-menu-part--header" [class.inverse]="isFull" (click)="onClickShow()">
+    <span class="next-menu-part--title">
+      title
+      <span *ngIf="isFull">-</span>
+      <span *ngIf="!isFull">+</span>
+    </span>
+  </div>
+
+  <div class="content" *ngIf="isFull">
+    <next-menu-item *ngFor="let i of partTitle" [title]="i.title" (click)="onItemClick(i.routerLink)"></next-menu-item>
+  </div>
+</div>
