@@ -1,0 +1,25 @@
+$header-height: 36px;
+$white: #fff;
+$blue-light: #5291dd;
+$blue: #0460a9;
+$dark-blue: #023761;
+$gray-medium: #c6c6c6;
+$gray-light: #ededed;
+
+.next-menu-item {
+  display: flex;
+  cursor: pointer;
+  color: $blue;
+
+  border-bottom: 1px solid #000;
+  height: 30px;
+
+  &:hover {
+    background-color: $gray-light;
+  }
+
+  &--title {
+    margin: auto 0;
+    margin-left: 15px;
+  }
+}
