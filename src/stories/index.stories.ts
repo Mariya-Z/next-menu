@@ -45,6 +45,11 @@ storiesOf('NEXT Menu', module)
     template: `
       ${styles}
       <div class="menu">
+      <next-menu-item
+        [title]="'title alone'"
+        [routerLink]="'routerLink alone'"
+        (newRouterLink)="test($event)"
+      ></next-menu-item>
         <next-menu-part [partTitle]="exp" [isFull]=true (newRouterLink)="test($event)"></next-menu-part>
         <next-menu-part [partTitle]="exp" (newRouterLink)="test($event)"></next-menu-part>
       </div>

@@ -7,16 +7,17 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 })
 export class NextMenuItemComponent implements OnInit {
   @Input() title = 'Title';
-  // @Input() routerLink: string;
-  // @Output() public newRouterLink: EventEmitter<string> = new EventEmitter<string>();
+  @Input() routerLink: string;
+  @Output() public newRouterLink: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit() {}
 
-  // public onItemClick() {
-  //   this.newRouterLink.emit(this.routerLink);
-  // }
+  public onItemClick() {
+    console.log('onItemClick')
+    this.newRouterLink.emit(this.routerLink);
+  }
 
 
 }

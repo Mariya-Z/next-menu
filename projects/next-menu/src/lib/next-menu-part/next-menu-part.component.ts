@@ -23,7 +23,7 @@ export class NextMenuPartComponent implements OnInit {
     this.isFull = !this.isFull;
   }
 
-  public onItemClick(link: string) {
+  public handleItemClick(link: string) {
     this.newRouterLink.emit(link);
   }
 }
