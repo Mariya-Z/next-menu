@@ -15,7 +15,6 @@ export class NextMenuItemComponent implements OnInit {
   ngOnInit() {}
 
   public onItemClick() {
-    console.log('onItemClick')
     this.newRouterLink.emit(this.routerLink);
   }
 
