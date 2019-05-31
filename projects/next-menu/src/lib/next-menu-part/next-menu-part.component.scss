@@ -29,4 +29,15 @@ $dark-blue: #023761;
     margin: auto 0;
     margin-left: 10px;
   }
+
+  &--options {
+    // display: flex;
+    display: inline-block;
+    margin-left: 70px;
+  }
+
+  &--option {
+    background-color: transparent;
+    // color: gray;
+  }
 }

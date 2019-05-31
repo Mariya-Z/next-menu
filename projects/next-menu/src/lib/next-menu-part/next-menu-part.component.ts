@@ -14,6 +14,8 @@ export class NextMenuPartComponent implements OnInit {
   @Input() public isFull = false;
   @Input() public partTitle: [Item];
   @Output() public newRouterLink: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public editPart: EventEmitter<void> = new EventEmitter<void>();
+  @Output() public deletePart: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() {}
 
@@ -25,5 +27,17 @@ export class NextMenuPartComponent implements OnInit {
 
   public handleItemClick(link: string) {
     this.newRouterLink.emit(link);
+  }
+
+  public onEditPart(event) {
+    console.log('edit');
+    event.stopPropagation();
+    this.editPart.emit();
+  }
+
+  public onDeletePart(event) {
+    console.log('delete');
+    event.stopPropagation();
+    this.deletePart.emit();
   }
 }
