@@ -1,12 +1,11 @@
 import {Component} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {By} from '@angular/platform-browser';
 
 import {NextMenuItemComponent} from './next-menu-item.component';
 
 @Component({
   template: `
-    <next-menu-item (itemClickEmitter)="catchClick()"></next-menu-item>
+    <next-menu-item (itemClickEmitter)="catchClick($event)"></next-menu-item>
   `,
 })
 class MockHostComponent extends NextMenuItemComponent {
@@ -40,8 +39,8 @@ describe('NextMenuItemComponent', () => {
     const mockComponent = mockFixture.componentInstance;
     mockFixture.detectChanges();
     const clickSpy = spyOn(mockComponent, 'catchClick');
-    const elements = mockFixture.nativeElement.querySelector('.next-menu-item');
-    elements.dispatchEvent(new Event('click'));
+    const element = mockFixture.nativeElement.querySelector('.next-menu-item');
+    element.dispatchEvent(new Event('click'));
     expect(clickSpy).toHaveBeenCalled();
   });
 });

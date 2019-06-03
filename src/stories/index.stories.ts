@@ -24,7 +24,7 @@ const styles = `
 //   props: {},
 // }));
 
-export const exp = [
+export const example = [
   {
     title: 'first',
     routerLink: 'first link',
@@ -50,12 +50,12 @@ storiesOf('NEXT Menu', module)
         [routerLink]="'routerLink alone'"
         (newRouterLink)="test($event)"
       ></next-menu-item>
-        <next-menu-part [partTitle]="exp" [isFull]=true (newRouterLink)="test($event)"></next-menu-part>
-        <next-menu-part [partTitle]="exp" (newRouterLink)="test($event)"></next-menu-part>
+        <next-menu-part partName="title" [partItems]="example" [showPartItems]=true (itemClickEmitter)="test($event)"></next-menu-part>
+        <next-menu-part partName="title" [partItems]="example" (itemClickEmitter)="test($event)"></next-menu-part>
       </div>
     `,
     props: {
-      exp,
+      example,
       test(link) {
         console.log(link);
       }

@@ -7,7 +7,7 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 })
 export class NextMenuItemComponent {
   @Input() public title = 'Title';
-  @Input() private routerLink: string;
+  @Input() public routerLink: string;
   @Output() public itemClickEmitter: EventEmitter<string> = new EventEmitter<string>();
 
   public onItemClick() {

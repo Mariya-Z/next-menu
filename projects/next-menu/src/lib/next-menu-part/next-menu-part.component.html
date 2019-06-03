@@ -1,24 +1,24 @@
 <div class="next-menu-part">
-  <div class="next-menu-part--header" [class.inverse]="isFull" (click)="onClickShow()">
+  <div class="next-menu-part--header" [class.inverse]="showPartItems" (click)="onClickShow()">
     <span class="next-menu-part--title">
-      title
-      <span *ngIf="isFull; else elseBlock">-</span>
+      {{ partName }}
+      <span *ngIf="showPartItems; else elseBlock">-</span>
       <ng-template #elseBlock>
         <span>+</span>
       </ng-template>
       <div class="next-menu-part--options">
-        <button class="next-menu-part--option" (click)="onEditPart($event)">E</button>
-        <button class="next-menu-part--option" (click)="onDeletePart($event)">D</button>
+        <button class="next-menu-part--option next-menu-part--edit" (click)="onEditClick($event)">E</button>
+        <button class="next-menu-part--option next-menu-part--delete" (click)="onDeleteClick($event)">D</button>
       </div>
     </span>
   </div>
 
-  <div class="content" *ngIf="isFull">
+  <div class="content" *ngIf="showPartItems">
     <next-menu-item
-      *ngFor="let i of partTitle"
+      *ngFor="let i of partItems"
       [title]="i.title"
       [routerLink]="i.routerLink"
-      (newRouterLink)="handleItemClick(i.routerLink)"
+      (itemClickEmitter)="handleItemClick(i.routerLink)"
     ></next-menu-item>
   </div>
 </div>
