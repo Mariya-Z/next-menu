@@ -27,13 +27,11 @@ export class NextMenuPartComponent {
   }
 
   public onEditClick(event: Event) {
-    console.log('edit');
     event.stopPropagation();
     this.editPart.emit();
   }
 
   public onDeleteClick(event: Event) {
-    console.log('delete');
     event.stopPropagation();
     this.deletePart.emit();
   }

@@ -3,7 +3,6 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {NextMenuPartComponent} from './next-menu-part.component';
 import {NextMenuItemComponent} from '../next-menu-item/next-menu-item.component';
-import { example } from 'src/stories/index.stories';
 
 export class Item {
   title: string;
@@ -26,6 +25,7 @@ export const PartExample = [
     <next-menu-part
       partName="test menu"
       [partItems]="PartExample"
+      [showPartItems]="true"
       (itemClickEmitter)="catchClickOnItem($event)"
       (editPart)="catchEditClick($event)"
       (deletePart)="catchDeleteClick($event)"
@@ -61,7 +61,7 @@ describe('NextMenuPartComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NextMenuPartComponent);
     component = fixture.componentInstance;
-    component.partItems = example as [Item];
+    component.partItems = PartExample as [Item];
     fixture.detectChanges();
 
     mockFixture = TestBed.createComponent(MockHostComponent);
@@ -75,7 +75,7 @@ describe('NextMenuPartComponent', () => {
 
   it('should show items after click on part name and close after second click', () => {
     component.showPartItems = false;
-    const element = fixture.nativeElement.querySelector('.next-menu-part--header');
+    const element = fixture.nativeElement.querySelector('.next-menu-part__header');
     element.dispatchEvent(new Event('click'));
     expect(component.showPartItems).toBeTruthy();
 
@@ -85,27 +85,23 @@ describe('NextMenuPartComponent', () => {
 
   it('should emit event by click edit on part', () => {
     const clickEditSpy = spyOn(mockComponent, 'catchEditClick');
-    const element = mockFixture.nativeElement.querySelector('.next-menu-part--edit');
+    const element = mockFixture.nativeElement.querySelector('.next-menu-part__edit');
     element.dispatchEvent(new Event('click'));
     expect(clickEditSpy).toHaveBeenCalled();
   });
 
   it('should emit event by click delete on part', () => {
     const clickDeleteSpy = spyOn(mockComponent, 'catchDeleteClick');
-    const element = mockFixture.nativeElement.querySelector('.next-menu-part--delete');
+    const element = mockFixture.nativeElement.querySelector('.next-menu-part__delete');
     element.dispatchEvent(new Event('click'));
     expect(clickDeleteSpy).toHaveBeenCalled();
   });
 
   it('should emit event by click on item', () => {
-    fixture.detectChanges();
-    // const clickOnItemSpy = spyOn(component, 'handleItemClick');
-    fixture.whenStable().then(() => {
-      const element = fixture.nativeElement.querySelector('.next-menu-item');
-      console.log(element);
-      // element.dispatchEvent(new Event('click'));
-      // expect(clickOnItemSpy).toHaveBeenCalled();
-    }
-    );
+    const clickOnItemSpy = spyOn(mockComponent, 'catchClickOnItem');
+    mockFixture.detectChanges();
+    const element = mockFixture.nativeElement.querySelector('.next-menu-item');
+    element.dispatchEvent(new Event('click'));
+    expect(clickOnItemSpy).toHaveBeenCalled();
   });
 });

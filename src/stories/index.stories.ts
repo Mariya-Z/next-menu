@@ -50,7 +50,14 @@ storiesOf('NEXT Menu', module)
         [routerLink]="'routerLink alone'"
         (newRouterLink)="test($event)"
       ></next-menu-item>
-        <next-menu-part partName="title" [partItems]="example" [showPartItems]=true (itemClickEmitter)="test($event)"></next-menu-part>
+
+
+        <next-menu-part
+          partName="title"
+          [partItems]="example"
+          [showPartItems]=true
+          (itemClickEmitter)="test($event)"
+        ></next-menu-part>
         <next-menu-part partName="title" [partItems]="example" (itemClickEmitter)="test($event)"></next-menu-part>
       </div>
     `,
@@ -58,7 +65,7 @@ storiesOf('NEXT Menu', module)
       example,
       test(link) {
         console.log(link);
-      }
+      },
     },
   }));
 // .add(
