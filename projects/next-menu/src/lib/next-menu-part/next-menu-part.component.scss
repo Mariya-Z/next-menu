@@ -2,6 +2,7 @@ $white: #fff;
 $blue-light: #5291dd;
 $blue: #0460a9;
 $dark-blue: #023761;
+$black: #000;
 
 .next-menu-part {
   cursor: pointer;
@@ -10,9 +11,7 @@ $dark-blue: #023761;
   flex-direction: column;
 
   &__header {
-    height: 30px;
-    display: flex;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid $black;
 
     &:hover {
       background-color: $blue;
@@ -26,16 +25,28 @@ $dark-blue: #023761;
   }
 
   &__title {
-    margin: auto 0;
-    margin-left: 10px;
-  }
-
-  &__options {
-    display: inline-block;
-    margin-left: 70px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto 10px;
   }
 
   &__option {
     background-color: transparent;
+    height: 20px;
+    width: 20px;
+    border: 0;
+    padding: 3px;
+    margin: 2px;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover > svg {
+      color: $white;
+    }
   }
 }
