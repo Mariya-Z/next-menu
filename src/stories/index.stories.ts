@@ -10,7 +10,7 @@ const styles = `
   <style>
     .menu \{
       display: block;
-      width: 200px;
+      width: 400px;
     \}
   </style>
 `;

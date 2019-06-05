@@ -9,6 +9,7 @@ $gray-light: #ededed;
 .next-menu-item {
   display: flex;
   cursor: pointer;
+  user-select: none;
   color: $blue;
 
   border-bottom: 1px solid #000;
