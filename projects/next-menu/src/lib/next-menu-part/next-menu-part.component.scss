@@ -2,7 +2,14 @@ $white: #fff;
 $blue-light: #5291dd;
 $blue: #0460a9;
 $dark-blue: #023761;
+$gray-medium: #c6c6c6;
 $black: #000;
+
+.arrow {
+  height: 20px;
+  width: 20px;
+  margin: auto 3px;
+}
 
 .next-menu-part {
   cursor: pointer;
@@ -14,14 +21,30 @@ $black: #000;
     border-bottom: 1px solid $black;
 
     &:hover {
-      background-color: $blue;
-      color: $white;
+      background-color: $blue-light;
     }
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
   }
 
   .inverse {
     color: $white;
     background-color: $blue;
+
+    svg {
+      color: $white;
+    }
+  }
+
+  & &__delete:hover > svg {
+    color: #d13a32;
+  }
+
+  & &__edit:hover > svg {
+    color: #3fe030;
   }
 
   &__title {
@@ -43,10 +66,6 @@ $black: #000;
 
     &:focus {
       outline: none;
-    }
-
-    &:hover > svg {
-      color: $white;
     }
   }
 }

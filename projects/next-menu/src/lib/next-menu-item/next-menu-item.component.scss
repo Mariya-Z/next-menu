@@ -11,6 +11,10 @@ $gray-light: #ededed;
   cursor: pointer;
   user-select: none;
   color: $blue;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  padding: 0;
 
   border-bottom: 1px solid #000;
   height: 30px;
@@ -22,5 +26,9 @@ $gray-light: #ededed;
   &__title {
     margin: auto 0;
     margin-left: 10px;
+  }
+
+  &:focus {
+    outline: none;
   }
 }

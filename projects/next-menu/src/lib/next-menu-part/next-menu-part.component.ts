@@ -12,14 +12,14 @@ export class Item {
 })
 export class NextMenuPartComponent {
   @Input() public partName: string;
-  @Input() public showPartItems = false;
-  @Input() public partItems: [Item];
+  @Input() public isOpen = false;
+  @Input() public children: Item[];
   @Output() public itemClickEmitter: EventEmitter<string> = new EventEmitter<string>();
   @Output() public editPart: EventEmitter<void> = new EventEmitter<void>();
   @Output() public deletePart: EventEmitter<void> = new EventEmitter<void>();
 
   public onClickShow() {
-    this.showPartItems = !this.showPartItems;
+    this.isOpen = !this.isOpen;
   }
 
   public handleItemClick(link: string) {

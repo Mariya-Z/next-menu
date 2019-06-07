@@ -1,36 +1,60 @@
 <div class="next-menu-part">
-  <div class="next-menu-part__header" [class.inverse]="showPartItems" (click)="onClickShow()">
+  <div class="next-menu-part__header" [class.inverse]="isOpen" (click)="onClickShow()">
     <span class="next-menu-part__title">
       <div class="next-menu-part__name">
         {{ partName }}
-        <span *ngIf="showPartItems; else elseBlock">-</span>
-        <ng-template #elseBlock>
-          <span>+</span>
+        <ng-container *ngIf="isOpen; else elseBlock">
+          <span class="arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+              <g>
+                <path
+                  fill="currentColor"
+                  d="M706.744 669.256l90.512-90.512-285.256-285.254-285.254 285.256 90.508 90.508 194.746-194.744z"
+                  />
+                </g>
+              </svg>
+            </span>
+          </ng-container>
+          <ng-template #elseBlock>
+            <span class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+                <g>
+                  <path
+                  fill="currentColor"
+                  d="M317.256 354.744l-90.512 90.512 285.256 285.254 285.254-285.256-90.508-90.508-194.746 194.744z"
+                />
+              </g>
+            </svg>
+          </span>
         </ng-template>
       </div>
       <div class="next-menu-part__options">
         <button class="next-menu-part__option next-menu-part__edit" (click)="onEditClick($event)">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 528.899 528.899">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
             <g>
               <path
                 fill="currentColor"
-                d="M328.883,89.125l107.59,107.589l-272.34,272.34L56.604,361.465L328.883,89.125z M518.113,63.177l-47.981-47.981
-              c-18.543-18.543-48.653-18.543-67.259,0l-45.961,45.961l107.59,107.59l53.611-53.611
-              C532.495,100.753,532.495,77.559,518.113,63.177z M0.3,512.69c-1.958,8.812,5.998,16.708,14.811,14.565l119.891-29.069
-              L27.473,390.597L0.3,512.69z"
+                d="M864 0c88.364 0 160 71.634 160 160 0 36.020-11.91 69.258-32 96l-64 64-224-224 64-64c26.742-20.090 59.978-32 96-32zM64 
+                736l-64 288 288-64 592-592-224-224-592 592zM715.578 363.578l-448 448-55.156-55.156 448-448 55.156 55.156z"
               />
             </g>
           </svg>
         </button>
         <button class="next-menu-part__option next-menu-part__delete" (click)="onDeleteClick($event)">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.971 47.971">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024  1024">
             <g>
               <path
                 fill="currentColor"
-                d="M28.228,23.986L47.092,5.122c1.172-1.171,1.172-3.071,0-4.242c-1.172-1.172-3.07-1.172-4.242,0L23.986,19.744L5.121,0.88
-             c-1.172-1.172-3.07-1.172-4.242,0c-1.172,1.171-1.172,3.071,0,4.242l18.865,18.864L0.879,42.85c-1.172,1.171-1.172,3.071,0,4.242
-             C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879
-             s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z"
+                d="M 1014.66 822.66 c -0.004 -0.004 -0.008 -0.008 -0.012 -0.01 l -310.644 -310.65 l 310.644 -310.65 c 0.004 -0.004 
+                0.008 -0.006 0.012 -0.01 c 3.344 -3.346 5.762 -7.254 7.312 -11.416 c 4.246 -11.376 1.824 -24.682 -7.324 -33.83 l 
+                -146.746 -146.746 c -9.148 -9.146 -22.45 -11.566 -33.828 -7.32 c -4.16 1.55 -8.07 3.968 -11.418 7.31 c 0 0.004 -0.004 
+                0.006 -0.008 0.01 l -310.648 310.652 l -310.648 -310.65 c -0.004 -0.004 -0.006 -0.006 -0.01 -0.01 c -3.346 -3.342 -7.254 
+                -5.76 -11.414 -7.31 c -11.38 -4.248 -24.682 -1.826 -33.83 7.32 l -146.748 146.748 c -9.148 9.148 -11.568 22.452 -7.322 33.828 
+                c 1.552 4.16 3.97 8.072 7.312 11.416 c 0.004 0.002 0.006 0.006 0.01 0.01 l 310.65 310.648 l -310.65 310.652 c -0.002 0.004 
+                -0.006 0.006 -0.008 0.01 c -3.342 3.346 -5.76 7.254 -7.314 11.414 c -4.248 11.376 -1.826 24.682 7.322 33.83 l 146.748 146.746 
+                c 9.15 9.148 22.452 11.568 33.83 7.322 c 4.16 -1.552 8.07 -3.97 11.416 -7.312 c 0.002 -0.004 0.006 -0.006 0.01 -0.01 l 310.648 
+                -310.65 l 310.648 310.65 c 0.004 0.002 0.008 0.006 0.012 0.008 c 3.348 3.344 7.254 5.762 11.414 7.314 c 11.378 4.246 24.684 
+                1.826 33.828 -7.322 l 146.746 -146.748 c 9.148 -9.148 11.57 -22.454 7.324 -33.83 c -1.552 -4.16 -3.97 -8.068 -7.314 -11.414 Z"
               />
             </g>
           </svg>
@@ -39,9 +63,9 @@
     </span>
   </div>
 
-  <div class="next-menu-part__content" *ngIf="showPartItems">
+  <div class="next-menu-part__content" *ngIf="isOpen">
     <next-menu-item
-      *ngFor="let i of partItems"
+      *ngFor="let i of children"
       [title]="i.title"
       [routerLink]="i.routerLink"
       (itemClickEmitter)="handleItemClick(i.routerLink)"
