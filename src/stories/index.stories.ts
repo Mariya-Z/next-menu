@@ -54,11 +54,11 @@ storiesOf('NEXT Menu', module)
 
         <next-menu-part
           partName="title"
-          [partItems]="example"
-          [showPartItems]=true
+          [children]="example"
+          [isOpen]=true
           (itemClickEmitter)="test($event)"
         ></next-menu-part>
-        <next-menu-part partName="title" [partItems]="example" (itemClickEmitter)="test($event)"></next-menu-part>
+        <next-menu-part partName="title" [children]="example" (itemClickEmitter)="test($event)"></next-menu-part>
       </div>
     `,
     props: {

@@ -24,8 +24,8 @@ export const PartExample = [
   template: `
     <next-menu-part
       partName="test menu"
-      [partItems]="PartExample"
-      [showPartItems]="true"
+      [children]="PartExample"
+      [isOpen]="true"
       (itemClickEmitter)="catchClickOnItem($event)"
       (editPart)="catchEditClick($event)"
       (deletePart)="catchDeleteClick($event)"
@@ -61,7 +61,7 @@ describe('NextMenuPartComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NextMenuPartComponent);
     component = fixture.componentInstance;
-    component.partItems = PartExample as [Item];
+    component.children = PartExample as [Item];
     fixture.detectChanges();
 
     mockFixture = TestBed.createComponent(MockHostComponent);
@@ -74,13 +74,13 @@ describe('NextMenuPartComponent', () => {
   });
 
   it('should show items after click on part name and close after second click', () => {
-    component.showPartItems = false;
+    component.isOpen = false;
     const element = fixture.nativeElement.querySelector('.next-menu-part__header');
     element.dispatchEvent(new Event('click'));
-    expect(component.showPartItems).toBeTruthy();
+    expect(component.isOpen).toBeTruthy();
 
     element.dispatchEvent(new Event('click'));
-    expect(component.showPartItems).toBeFalsy();
+    expect(component.isOpen).toBeFalsy();
   });
 
   it('should emit event by click edit on part', () => {
